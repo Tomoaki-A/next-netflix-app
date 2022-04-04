@@ -5,8 +5,13 @@ import { useFetchMovie } from "src/hooks/useFetchMovie";
 
 export const Raw = (props) => {
   const url = props.url;
-  console.log(url);
   const { movies, error, isLoading } = useFetchMovie(url);
+
+  const upperCase = (arg) => {
+    const newTitle = arg.charAt(0).toUpperCase() + arg.slice(1);
+    return newTitle;
+  };
+  const title = upperCase(props.title);
 
   if (isLoading) {
     return <div className="loading">Loading...</div>;
@@ -16,23 +21,25 @@ export const Raw = (props) => {
   }
 
   return (
-    <div className={styles.text}>
-      <ul>
+    <div className={styles.raw}>
+      <h2 className={styles.raw__title}>{title}</h2>
+      <div className={styles.list}>
         {movies
           ? movies.map((item, index) => {
               return (
-                <li key={index}>
+                <div className={styles.list__item}>
                   <Image
-                    src={`${IMAGE_DOMAIN}${item.backdrop_path}?api_key=f7036a0037614a473cd5152290cc19c4`}
+                    key={index}
+                    src={`${IMAGE_DOMAIN}${item.poster_path}?api_key=f7036a0037614a473cd5152290cc19c4`}
                     alt=""
-                    width={100}
-                    height={100}
+                    width={200}
+                    height={300}
                   />
-                </li>
+                </div>
               );
             })
           : null}
-      </ul>
+      </div>
     </div>
   );
 };

@@ -1,2 +1,2 @@
-.text{color:red}.loading{background-color:#000}
+.raw__title{color:#fff;padding:2rem}.list{display:flex;padding:20px;overflow-y:hidden;overflow-x:scroll}.list__item{flex:0 0 200px;-o-object-fit:contain;object-fit:contain;margin:10px 20px}
 /*# sourceMappingURL=Raw.module.min.css.map */
