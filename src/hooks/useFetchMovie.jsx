@@ -1,5 +1,4 @@
 import { fetcher } from "src/utils/fetcher";
-import { fetchUrl } from "../utils/fetchUrl";
 import useSWR from "swr";
 
 export const useFetchMovie = (url) => {

@@ -4,7 +4,6 @@ import { IMAGE_DOMAIN } from "src/utils/fetchUrl";
 import { useFetchMovie } from "src/hooks/useFetchMovie";
 
 export const Raw = (props) => {
-  const title = props.title;
   const url = props.url;
   console.log(url);
   const { movies, error, isLoading } = useFetchMovie(url);
@@ -23,7 +22,6 @@ export const Raw = (props) => {
           ? movies.map((item, index) => {
               return (
                 <li key={index}>
-                  <div>{item.title ? item.title : item.name}</div>
                   <Image
                     src={`${IMAGE_DOMAIN}${item.backdrop_path}?api_key=f7036a0037614a473cd5152290cc19c4`}
                     alt=""
