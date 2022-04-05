@@ -27,9 +27,8 @@ export const Raw = (props) => {
         {movies
           ? movies.map((item, index) => {
               return (
-                <div className={styles.list__item}>
+                <div key={index} className={styles.list__item}>
                   <Image
-                    key={index}
                     src={`${IMAGE_DOMAIN}${item.poster_path}?api_key=f7036a0037614a473cd5152290cc19c4`}
                     alt=""
                     width={200}
